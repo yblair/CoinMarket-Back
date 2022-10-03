@@ -19,8 +19,8 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-
-const PORT = process.env.PORT || 3001
+const dbURI = "postgres://localhost:3001/pokemon"
+const PORT = process.env.PORT || dbURI
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(PORT, () => {
